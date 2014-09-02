@@ -35,6 +35,7 @@ obj_*
 symbols.*
 Makefile.target
 doc/html
+doc/latex
 patches-*
 tools/tunslip6
 build
@@ -88,3 +89,6 @@ contiki-cc2530dk.lib
 # rl78 build artifacts
 *.eval-adf7xxxmb4z
 *.eval-adf7xxxmb4z.srec
+
+*TAGS*
+*tags*
