@@ -76,9 +76,9 @@ rpl_set_mode(enum rpl_mode m)
      switching to. */
   if(m == RPL_MODE_MESH) {
 
-    /* If we switcht to mesh mode, we should send out a DAO message to
+    /* If we switch to mesh mode, we should send out a DAO message to
        inform our parent that we now are reachable. Before we do this,
-       we must set the mode variable, since DAOs will not be send if
+       we must set the mode variable, since DAOs will not be sent if
        we are in feather mode. */
     PRINTF("RPL: switching to mesh mode\n");
     mode = m;
@@ -263,6 +263,7 @@ rpl_link_neighbor_callback(const linkaddr_t *addr, int status, int numtx)
         parent->flags |= RPL_PARENT_FLAG_UPDATED;
         if(instance->of->neighbor_link_callback != NULL) {
           instance->of->neighbor_link_callback(parent, status, numtx);
+          parent->last_tx_time = clock_time();
         }
       }
     }
